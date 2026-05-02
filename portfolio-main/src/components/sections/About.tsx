@@ -112,27 +112,27 @@ export default function About() {
                             variants={itemVariants}
                             className="text-lg text-gray-300 leading-relaxed"
                         >
-                            I am a proactive and motivated Computer Science undergraduate with a strong interest in 
-                            software engineering. Currently pursuing B.Sc. in Computer Science at University of 
-                            Colombo School of Computing (UCSC) with a GPA of 3.20/4.00, I am eager to apply my 
-                            academic knowledge and problem-solving skills in real-world environments.
+                            I am a proactive and motivated Computer Science undergraduate with a strong interest in
+                            data engineering and software engineering. Currently pursuing a B.Sc. in Computer Science
+                            at the University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00, I focus
+                            on building reliable data pipelines, modular transformations, and analytics-ready systems.
                         </motion.p>
 
                         <motion.p
                             variants={itemVariants}
                             className="text-lg text-gray-300 leading-relaxed"
                         >
-                            Known for my collaborative mindset and positive attitude, I enjoy working in team-oriented 
-                            settings and contributing to shared goals. I am passionate about continuous learning and 
-                            committed to growing both personally and professionally while delivering high-quality work 
-                            through projects like UniQuest, ArtAura, and Calliera.
+                            I enjoy turning raw data into actionable insights through end-to-end pipelines that combine
+                            ingestion, validation, transformation, and orchestration. I am committed to continuous
+                            learning and collaborative delivery while working on projects like NYC Taxi Data Engineering
+                            Pipeline and the Real-Time E-Commerce Order Stream Monitor.
                         </motion.p>
 
                         <motion.div
                             variants={itemVariants}
                             className="flex flex-wrap gap-3 pt-4"
                         >
-                            {['Software Engineering', 'Full-Stack Development', 'Team Collaboration', 'Continuous Learning'].map((skill) => (
+                            {['Data Engineering', 'ETL/ELT Pipelines', 'Real-Time Analytics', 'Continuous Learning'].map((skill) => (
                                 <span
                                     key={skill}
                                     className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-medium"
@@ -182,8 +182,8 @@ export default function About() {
                     className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
                 >
                     {[
-                        { number: "3.21", label: "GPA/4.00" },
-                        { number: "3+", label: "Major Projects" },
+                        { number: "3.32", label: "GPA/4.00" },
+                        { number: "5+", label: "Major Projects" },
                         { number: "10+", label: "Technologies" },
                         { number: "2026", label: "Graduation" }
                     ].map((stat) => (

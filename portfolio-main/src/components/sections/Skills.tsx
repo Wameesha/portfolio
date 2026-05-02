@@ -8,7 +8,8 @@ import {
     SiReact, SiNodedotjs, SiExpress, SiSpringboot,
     SiPhp, SiC, SiCplusplus, SiScala, SiPython, SiR,
     SiTailwindcss, SiMysql, SiMongodb, SiGit, SiLinux,
-    SiJavascript, SiHtml5, SiCss3, SiFigma, SiPostman, SiNextdotjs
+    SiJavascript, SiHtml5, SiCss3, SiFigma, SiPostman, SiNextdotjs,
+    SiApacheairflow, SiDbt, SiSnowflake, SiSupabase, SiLooker, SiPandas
 } from 'react-icons/si'
 
 
@@ -34,7 +35,13 @@ const mainTechnologies = [
     { icon: SiGit, color: '#F05032', position: { top: '42%', left: '35%' } },
     { icon: SiLinux, color: '#FCC624', position: { top: '68%', left: '55%' } },
     { icon: SiFigma, color: '#F24E1E', position: { top: '22%', left: '45%' } },
-    { icon: SiPostman, color: '#FF6C37', position: { top: '38%', left: '85%' } }
+    { icon: SiPostman, color: '#FF6C37', position: { top: '38%', left: '85%' } },
+    { icon: SiApacheairflow, color: '#017CEE', position: { top: '8%', left: '60%' } },
+    { icon: SiDbt, color: '#FF694B', position: { top: '28%', left: '5%' } },
+    { icon: SiSnowflake, color: '#29B5E8', position: { top: '52%', left: '10%' } },
+    { icon: SiSupabase, color: '#3ECF8E', position: { top: '78%', left: '55%' } },
+    { icon: SiLooker, color: '#4285F4', position: { top: '88%', left: '65%' } },
+    { icon: SiPandas, color: '#150458', position: { top: '33%', left: '92%' } }
 ]
 
 export default function Skills() {

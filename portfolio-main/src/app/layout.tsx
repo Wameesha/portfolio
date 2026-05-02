@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   keywords: ["Computer Science", "Full Stack Developer", "Web Developer", "Portfolio", "React", "Next.js", "Wameesha Jayasingha"],
   authors: [{ name: "Wameesha Jayasingha" }],
   creator: "Wameesha Jayasingha",
+  icons: {
+    icon: "/w.png",
+    apple: "/w.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -28,12 +32,21 @@ export const metadata: Metadata = {
     title: "Wameesha Jayasingha | Computer Science Undergraduate & Full Stack Developer",
     description: "Computer Science undergraduate passionate about full-stack development and creating innovative software solutions that solve real-world problems.",
     siteName: "Wameesha Jayasingha Portfolio",
+    images: [
+      {
+        url: "/w.png",
+        width: 512,
+        height: 512,
+        alt: "Wameesha Jayasingha",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Your Portfolio | Software Engineer & Information Systems Specialist",
     description: "Professional portfolio showcasing software engineering projects and Information Systems expertise.",
     creator: "@yourusername",
+    images: ["/w.png"],
   },
   robots: {
     index: true,

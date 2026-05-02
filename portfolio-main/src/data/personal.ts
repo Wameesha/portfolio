@@ -1,10 +1,10 @@
 export const personalInfo = {
   name: "Wameesha Jayasingha",
-  title: "Computer Science Undergraduate & Full Stack Developer",
+  title: "Computer Science Undergraduate & Data Engineer",
   email: "rasanjani9jayasingha@gmail.com",
   phone: "+94 74 1748684",
   location: "Kurunegala, Sri Lanka",
-  bio: "Proactive and motivated Computer Science undergraduate with a strong interest in software engineering. Currently pursuing B.Sc. in Computer Science at University of Colombo School of Computing (UCSC) with a GPA of 3.21/4.00. Passionate about applying academic knowledge and problem-solving skills in real-world environments while contributing to innovative software solutions.",
+  bio: "Proactive and motivated Computer Science undergraduate focused on data engineering and software engineering. Currently pursuing a B.Sc. in Computer Science at the University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00. Passionate about building reliable data pipelines, real-time analytics, and production-ready systems that turn data into insights.",
   avatar: "/images/avatar.png", // Your professional headshot
   resume: "/images/resume.pdf", // Your resume file
 };

@@ -106,12 +106,67 @@ export const projects: Project[] = [
       "Real-time communication implementation",
       "Modern tech stack with MERN architecture"
     ]
+  },
+  {
+    id: "project-4",
+    title: "NYC Taxi Data Engineering Pipeline",
+    description: "End-to-end automated pipeline processing 3M+ NYC Yellow Taxi trips with modern data stack tooling.",
+    longDescription: "This project builds a full ELT pipeline for NYC taxi data, ingesting raw parquet files into a cloud warehouse, validating data quality, transforming with dbt into analytics-ready marts, and orchestrating the flow with Airflow. The final dashboard highlights demand peaks, trip segments, and revenue patterns.",
+    image: "/images/projects/dashboard_final.png",
+    technologies: ["Python", "Pandas", "Supabase", "PostgreSQL", "dbt", "Apache Airflow", "Looker Studio"],
+    category: "Data Engineering",
+    featured: false,
+    liveUrl: "",
+    githubUrl: "https://github.com/Wameesha/taxi-data-pipeline.git",
+    teamSize: 1,
+    duration: "2026",
+    status: "completed",
+    features: [
+      "Automated parquet ingestion into Supabase",
+      "Validation checks for data integrity",
+      "dbt mart models for analytics",
+      "Airflow DAG orchestration",
+      "Looker Studio dashboard for insights"
+    ],
+    achievements: [
+      "Processed 3M+ taxi trip records",
+      "Identified peak demand at 18:00",
+      "Segmented trips by distance and revenue"
+    ]
+  },
+  {
+    id: "project-5",
+    title: "Real-Time E-Commerce Order Stream Monitor",
+    description: "Production-grade streaming pipeline into Snowflake with under 90-second end-to-end latency.",
+    longDescription: "A real-time pipeline that streams live e-commerce orders into Snowflake using a Python producer. Snowflake Streams capture new inserts, Tasks transform raw JSON into typed staging tables, and Dynamic Tables power live KPI dashboards in Snowsight with minute-level refresh.",
+    image: "/images/projects/dashboard.png",
+    technologies: ["Python", "Snowflake", "Snowflake Streams", "Snowflake Tasks", "Dynamic Tables"],
+    category: "Data Engineering",
+    featured: false,
+    liveUrl: "",
+    githubUrl: "https://github.com/Wameesha/realtime-ecommerce-pipeline.git",
+    teamSize: 1,
+    duration: "2026",
+    status: "completed",
+    features: [
+      "Python order generator and stream producer",
+      "CDC with Snowflake Streams",
+      "Scheduled JSON extraction with Tasks",
+      "Auto-refreshing Dynamic Tables",
+      "Live KPI dashboard in Snowsight"
+    ],
+    achievements: [
+      "Achieved sub-90-second latency",
+      "Processed 60 orders per minute",
+      "Live KPI tiles with 30-second refresh"
+    ]
   }
 ];
 
 export const categories = [
   "All",
   "Full Stack",
+  "Data Engineering",
   "Web App",
   "Frontend",
   "Backend"
