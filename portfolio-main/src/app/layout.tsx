@@ -16,6 +16,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yourportfolio.com"),
   title: "Wameesha Jayasingha | Computer Science Undergraduate & Full Stack Developer",
   description: "Computer Science undergraduate passionate about full-stack development and creating innovative software solutions that solve real-world problems.",
   keywords: ["Computer Science", "Full Stack Developer", "Web Developer", "Portfolio", "React", "Next.js", "Wameesha Jayasingha"],
