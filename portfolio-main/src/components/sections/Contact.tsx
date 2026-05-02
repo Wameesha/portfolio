@@ -1,30 +1,14 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { FiMail, FiSend, FiLinkedin, FiGithub } from 'react-icons/fi'
+import { useRef } from 'react'
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'
 import { personalInfo, socialLinks } from '@/data/personal'
 
 export default function Contact() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "-100px" })
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        contactNumber: '',
-        subject: '',
-        message: ''
-    })
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-    // const [showSuccessPopup, setShowSuccessPopup] = useState(false)
-    const [validationErrors, setValidationErrors] = useState({
-        email: '',
-        contactNumber: ''
-    })
-
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -45,112 +29,11 @@ export default function Contact() {
         }
     }
 
-    const formVariants = {
-        hidden: { x: -50, opacity: 0 },
-        visible: {
-            x: 0,
-            opacity: 1
-        }
-    }
-
     const infoVariants = {
         hidden: { x: 50, opacity: 0 },
         visible: {
             x: 0,
             opacity: 1
-        }
-    }
-
-    // Validation functions
-    const validateEmail = (email: string): string => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) return '';
-        if (!emailRegex.test(email)) {
-            return 'Please enter a valid email address (e.g., john@example.com)';
-        }
-        return '';
-    };
-
-    const validateContactNumber = (number: string): string => {
-        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,15}$/;
-        if (!number) return '';
-        if (!phoneRegex.test(number)) {
-            return 'Please enter a valid contact number (10-15 digits, may include +, spaces, -, (), e.g., +94 77 123 4567)';
-        }
-        return '';
-    };
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target
-
-        setFormData({
-            ...formData,
-            [name]: value
-        })
-
-        // Real-time validation for email and contact number
-        if (name === 'email') {
-            setValidationErrors(prev => ({
-                ...prev,
-                email: validateEmail(value)
-            }))
-        } else if (name === 'contactNumber') {
-            setValidationErrors(prev => ({
-                ...prev,
-                contactNumber: validateContactNumber(value)
-            }))
-        }
-    }
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-
-        // Validate email and contact number before submitting
-        const emailError = validateEmail(formData.email)
-        const contactError = validateContactNumber(formData.contactNumber)
-
-        setValidationErrors({
-            email: emailError,
-            contactNumber: contactError
-        })
-
-        // Don't submit if there are validation errors
-        if (emailError || contactError) {
-            return
-        }
-
-        setIsSubmitting(true)
-        setSubmitStatus('idle')
-
-        try {
-            // Send form data to our API route
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-
-            const result = await response.json()
-
-            if (response.ok && result.success) {
-                setSubmitStatus('success')
-                setValidationErrors({ email: '', contactNumber: '' })
-
-                // Show success message for 3 seconds, then reset form
-                setTimeout(() => {
-                    setFormData({ firstName: '', lastName: '', email: '', contactNumber: '', subject: '', message: '' })
-                    setSubmitStatus('idle')
-                }, 3000)
-            } else {
-                throw new Error(result.message || 'Failed to send email')
-            }
-        } catch (error) {
-            console.error('Form submission failed:', error)
-            setSubmitStatus('error')
-        } finally {
-            setIsSubmitting(false)
         }
     }
 

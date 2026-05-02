@@ -1,8 +1,8 @@
 'use client'
 
 import { useRef, useMemo, useEffect } from 'react'
-import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
-import { Points, PointMaterial, Sphere } from '@react-three/drei'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Points, PointMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 import { gsap } from 'gsap'
 
@@ -20,7 +20,7 @@ function generateSphere(count: number) {
 
 function ParticleSystem() {
     const ref = useRef<THREE.Points>(null)
-    const { camera, mouse } = useThree()
+    const { mouse } = useThree()
 
     const particleCount = 2000
     const positions = useMemo(() => generateSphere(particleCount), [particleCount])
