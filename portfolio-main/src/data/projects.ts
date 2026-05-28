@@ -160,6 +160,35 @@ export const projects: Project[] = [
       "Processed 60 orders per minute",
       "Live KPI tiles with 30-second refresh"
     ]
+  },
+  {
+    id: "project-6",
+    title: "Real-Time Crypto Market Intelligence Pipeline",
+    description: "Real-time pipeline classifying crypto market signals with rolling analytics and live dashboards.",
+    longDescription: "Built a real-time crypto market intelligence pipeline using the CoinGecko API, Redpanda (Kafka-compatible), and Python to ingest and process live market data for 10 cryptocurrencies every 30 seconds. Kafka consumers handle market signal classification (BULLISH/BEARISH/NEUTRAL), spike detection, and rolling-window aggregations, storing processed events in Snowflake Bronze tables. Implemented a Medallion Architecture (Bronze to Silver to Gold) with dbt incremental models, MD5-based deduplication, and schema validation tests. Delivered a live Looker Studio dashboard to visualize market signals, price trends, and high-volume assets in real time.",
+    image: "/images/projects/crypto.png",
+    technologies: ["Python", "Apache Kafka", "Redpanda", "Snowflake", "dbt", "Looker Studio", "CoinGecko API", "WSL"],
+    category: "Data Engineering",
+    featured: false,
+    liveUrl: "",
+    githubUrl: "https://github.com/Wameesha/crypto-pipeline.git",
+    teamSize: 1,
+    duration: "May 2026",
+    status: "completed",
+    features: [
+      "CoinGecko ingestion for 10 assets every 30 seconds",
+      "Kafka consumers for signal classification",
+      "Spike detection and rolling-window aggregations",
+      "Snowflake Bronze event storage",
+      "dbt Medallion models with MD5 deduplication",
+      "Schema validation tests and data quality checks",
+      "Real-time Looker Studio dashboard"
+    ],
+    achievements: [
+      "Live market signal classification pipeline",
+      "Medallion architecture implemented with dbt",
+      "Realtime dashboards for price and volume trends"
+    ]
   }
 ];
 

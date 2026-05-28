@@ -155,7 +155,7 @@ export default function Hero() {
         <section
             ref={ref}
             id="home"
-            className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden"
+            className="relative min-h-screen flex items-center justify-center bg-[#0b0f1a] overflow-hidden"
         >
             {/* 3D Particle Background */}
             <div className="hero-bg absolute inset-0">
@@ -202,10 +202,8 @@ export default function Hero() {
                         variants={itemVariants}
                         className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
                     >
-                        Hi, I&apos;m{' '}
-                        <span className="text-purple-400">
-                            {personalInfo.name}
-                        </span>
+                        <span className="block">Hi, I&apos;m</span>
+                        <span className="block text-purple-400">Wameesha Jayasingha</span>
                     </motion.h1>
 
                     {/* Animated Title */}
@@ -214,7 +212,7 @@ export default function Hero() {
                         className="mb-6"
                     >
                         <TypingAnimation
-                            texts={[personalInfo.title]}
+                            texts={["Data Engineer"]}
                             className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-medium"
                         />
                     </motion.div>
@@ -224,7 +222,10 @@ export default function Hero() {
                         variants={itemVariants}
                         className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
                     >
-                        {personalInfo.bio}
+                        Aspiring Data Engineer specializing in real-time streaming pipelines,
+                        cloud data warehousing, and ELT automation. Building data systems that
+                        move at the speed of business using Apache Kafka, Snowflake, dbt, and
+                        Apache Airflow.
                     </motion.p>
 
                     {/* Action Buttons */}

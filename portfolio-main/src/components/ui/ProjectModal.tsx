@@ -79,12 +79,12 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                             {/* Content Container */}
                             <div className="overflow-y-auto max-h-[90vh]">
                                 {/* Project Image */}
-                                <div className="relative h-64 sm:h-80">
+                                <div className="relative h-64 sm:h-80 bg-gray-900">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-contain"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 

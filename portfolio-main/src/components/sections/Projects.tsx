@@ -12,8 +12,19 @@ export default function Projects() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "-100px" })
     const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+    const [activeFilter, setActiveFilter] = useState('All')
 
-    const filteredProjects = projects
+    const filterOptions = ['All', 'Data Engineering', 'Full Stack']
+    const filteredProjects = activeFilter === 'All'
+        ? projects
+        : projects.filter((project) => project.category === activeFilter)
+
+    const dataEngineeringProjects = filteredProjects.filter(
+        (project) => project.category === 'Data Engineering'
+    )
+    const otherProjects = filteredProjects.filter(
+        (project) => project.category !== 'Data Engineering'
+    )
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -58,12 +69,12 @@ export default function Projects() {
             className="group relative bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
         >
             {/* Project Image */}
-            <div className="relative h-40 sm:h-56">
+            <div className="relative h-40 sm:h-56 bg-gray-900">
                 <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -98,7 +109,7 @@ export default function Projects() {
                     <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-200">
                         {project.title}
                     </h3>
-                    <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm font-medium">
+                    <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm font-medium whitespace-nowrap">
                         {project.category}
                     </span>
                 </div>
@@ -166,19 +177,65 @@ export default function Projects() {
                         variants={itemVariants}
                         className="text-xl text-gray-300 max-w-3xl mx-auto"
                     >
-                        A showcase of my best work, combining technical excellence with business value and user experience
+                        End-to-end data engineering systems — from raw ingestion to live dashboards
                     </motion.p>
                 </motion.div>
 
-                {/* Projects Grid */}
+                {/* Filter Tags */}
                 <motion.div
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={itemVariants}
+                    className="flex flex-wrap justify-center gap-3 mb-10"
                 >
-                    {filteredProjects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
+                    {filterOptions.map((option) => (
+                        <motion.button
+                            key={option}
+                            onClick={() => setActiveFilter(option)}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors duration-200 ${
+                                activeFilter === option
+                                    ? 'bg-purple-600 border-purple-500 text-white'
+                                    : 'bg-gray-900 border-gray-700 text-gray-300 hover:border-purple-400'
+                            }`}
+                        >
+                            {option}
+                        </motion.button>
                     ))}
                 </motion.div>
+
+                {/* Projects Grid */}
+                {activeFilter === 'All' ? (
+                    <>
+                        <motion.div
+                            layout
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                        >
+                            {dataEngineeringProjects.map((project, index) => (
+                                <ProjectCard key={project.id} project={project} index={index} />
+                            ))}
+                        </motion.div>
+
+                        {otherProjects.length > 0 && (
+                            <motion.div
+                                layout
+                                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
+                            >
+                                {otherProjects.map((project, index) => (
+                                    <ProjectCard key={project.id} project={project} index={index} />
+                                ))}
+                            </motion.div>
+                        )}
+                    </>
+                ) : (
+                    <motion.div
+                        layout
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {filteredProjects.map((project, index) => (
+                            <ProjectCard key={project.id} project={project} index={index} />
+                        ))}
+                    </motion.div>
+                )}
 
                 {/* No Projects Message */}
                 {filteredProjects.length === 0 && (

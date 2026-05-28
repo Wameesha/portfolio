@@ -3,8 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'
-import { personalInfo, socialLinks } from '@/data/personal'
+import { FiMail, FiLinkedin, FiGithub, FiGlobe } from 'react-icons/fi'
 
 export default function Contact() {
     const ref = useRef(null)
@@ -41,20 +40,20 @@ export default function Contact() {
         {
             icon: FiMail,
             label: 'Email',
-            value: personalInfo.email,
-            href: `mailto:${personalInfo.email}`
+            value: 'rasanjani9jayasingha@gmail.com',
+            href: 'mailto:rasanjani9jayasingha@gmail.com'
         },
         {
             icon: FiLinkedin,
             label: 'LinkedIn',
-            value: 'Connect with me',
-            href: socialLinks.linkedin
+            value: 'linkedin.com/in/wameesha-jayasingha',
+            href: 'https://linkedin.com/in/wameesha-jayasingha'
         },
         {
             icon: FiGithub,
             label: 'GitHub',
-            value: 'View my work',
-            href: socialLinks.github
+            value: 'github.com/Wameesha',
+            href: 'https://github.com/Wameesha'
         }
     ]
 
@@ -89,25 +88,28 @@ export default function Contact() {
                         variants={itemVariants}
                         className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Ready to bring your ideas to life? Let&apos;s discuss your next project and how I can help make it a reality.
+                        Ready to discuss data engineering opportunities?
+                        <br />
+                        Let&apos;s connect.
                     </motion.p>
                 </motion.div>
 
-                <div className="flex flex-col md:flex-row gap-10 justify-center items-start">
-                    {/* Contact Information */}
+                <div className="flex justify-center">
                     <motion.div
                         variants={infoVariants}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="space-y-8 w-full md:w-1/2"
+                        className="w-full max-w-2xl space-y-8"
                     >
                         <motion.div variants={itemVariants}>
                             <h3 className="text-xl font-semibold text-white mb-4">
                                 Let&apos;s Start a Conversation
                             </h3>
                             <p className="text-gray-300 mb-6 leading-relaxed">
-                                I&apos;m always excited to work on new projects and collaborate with talented individuals. Whether you have a specific project in mind or just want to explore possibilities, I&apos;d love to hear from you.
+                                I am actively seeking data engineering internships and graduate roles.
+                                Whether you have a pipeline challenge to solve, a team to join, or just
+                                want to talk about the modern data stack - I would love to hear from you.
                             </p>
                         </motion.div>
 
@@ -138,21 +140,6 @@ export default function Contact() {
                             ))}
                         </div>
 
-                        {/* Availability Status */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="p-5 bg-green-900/20 rounded-lg border border-green-800 mt-6"
-                        >
-                            <div className="flex items-center space-x-3">
-                                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                                <span className="text-green-300 font-medium">
-                                    Available for new projects
-                                </span>
-                            </div>
-                            <p className="mt-2 text-green-400 text-xs">
-                                Currently accepting freelance and full-time opportunities
-                            </p>
-                        </motion.div>
                     </motion.div>
                 </div>
             </div>

@@ -3,29 +3,29 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiCode, FiDatabase, FiUsers, FiTrendingUp } from 'react-icons/fi'
+import { FiZap, FiDatabase, FiRefreshCw, FiBarChart2 } from 'react-icons/fi'
 
 
 const features = [
     {
-        icon: <FiCode className="w-6 h-6" />,
-        title: "Full-Stack Development",
-        description: "Building complete web applications with modern technologies from frontend to backend"
+        icon: <FiZap className="w-6 h-6" />,
+        title: "Real-Time Stream Processing",
+        description: "Building event-driven pipelines with Apache Kafka, Redpanda and Snowflake Streams for sub-90-second end-to-end data delivery."
     },
     {
         icon: <FiDatabase className="w-6 h-6" />,
-        title: "Database Management",
-        description: "Designing and implementing efficient database solutions with MySQL and MongoDB"
+        title: "Cloud Data Warehousing",
+        description: "Designing Medallion Architecture (Bronze -> Silver -> Gold) in Snowflake with dbt incremental models and automated quality tests."
     },
     {
-        icon: <FiUsers className="w-6 h-6" />,
-        title: "Team Collaboration",
-        description: "Working effectively in team environments to deliver high-quality software solutions"
+        icon: <FiRefreshCw className="w-6 h-6" />,
+        title: "Pipeline Orchestration",
+        description: "Automating end-to-end workflows with Apache Airflow DAGs including dependency management and task-level monitoring on WSL."
     },
     {
-        icon: <FiTrendingUp className="w-6 h-6" />,
-        title: "Problem Solving",
-        description: "Applying academic knowledge and analytical skills to solve real-world challenges"
+        icon: <FiBarChart2 className="w-6 h-6" />,
+        title: "Analytics & Visualization",
+        description: "Delivering live BI dashboards via Looker Studio and Snowsight connected directly to Snowflake Gold layer tables with auto-refresh."
     }
 ]
 
@@ -104,7 +104,7 @@ export default function About() {
                         >
                             Passionate About Building{' '}
                             <span className="text-purple-400">
-                                Real-World Software Solutions
+                                Data Pipelines That Deliver Real Business Value
                             </span>
                         </motion.h3>
 
@@ -112,27 +112,30 @@ export default function About() {
                             variants={itemVariants}
                             className="text-lg text-gray-300 leading-relaxed"
                         >
-                            I am a proactive and motivated Computer Science undergraduate with a strong interest in
-                            data engineering and software engineering. Currently pursuing a B.Sc. in Computer Science
-                            at the University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00, I focus
-                            on building reliable data pipelines, modular transformations, and analytics-ready systems.
+                            I am an aspiring Data Engineer and Computer Science undergraduate at the
+                            University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00.
+                            I specialize in designing and implementing real-time and batch data pipelines
+                            using the modern data stack - building end-to-end systems that move data from
+                            raw sources into analytics-ready warehouses, reliably and at scale.
                         </motion.p>
 
                         <motion.p
                             variants={itemVariants}
                             className="text-lg text-gray-300 leading-relaxed"
                         >
-                            I enjoy turning raw data into actionable insights through end-to-end pipelines that combine
-                            ingestion, validation, transformation, and orchestration. I am committed to continuous
-                            learning and collaborative delivery while working on projects like NYC Taxi Data Engineering
-                            Pipeline and the Real-Time E-Commerce Order Stream Monitor.
+                            My hands-on experience spans the full data engineering lifecycle: streaming
+                            ingestion with Apache Kafka and Redpanda, cloud warehousing with Snowflake,
+                            modular SQL transformations with dbt, workflow orchestration with Apache
+                            Airflow and live dashboarding with Looker Studio and Snowsight. I hold two
+                            DataCamp Data Engineer certifications and have shipped three production-grade
+                            pipeline projects processing millions of records in real time.
                         </motion.p>
 
                         <motion.div
                             variants={itemVariants}
                             className="flex flex-wrap gap-3 pt-4"
                         >
-                            {['Data Engineering', 'ETL/ELT Pipelines', 'Real-Time Analytics', 'Continuous Learning'].map((skill) => (
+                            {['Apache Kafka', 'Snowflake', 'dbt', 'Apache Airflow', 'Real-Time Pipelines', 'ETL/ELT', 'Medallion Architecture', 'Stream Processing'].map((skill) => (
                                 <span
                                     key={skill}
                                     className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-medium"

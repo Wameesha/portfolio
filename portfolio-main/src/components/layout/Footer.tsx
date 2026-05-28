@@ -58,13 +58,14 @@ export default function Footer() {
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                         >
-                            {personalInfo.name}
+                            Wameesha Jayasingha
                         </motion.h3>
                         <motion.p
                             variants={itemVariants}
                             className="text-gray-300 leading-relaxed"
                         >
-                            Computer Science undergraduate passionate about full-stack development and creating innovative software solutions that solve real-world problems.
+                            Aspiring Data Engineer building real-time pipelines and cloud data
+                            warehousing solutions that turn raw data into business insights.
                         </motion.p>
                         <motion.div variants={itemVariants} className="flex space-x-4">
                             {footerSocials.map((social, index) => (
@@ -89,7 +90,7 @@ export default function Footer() {
                     <motion.div variants={itemVariants} className="space-y-4">
                         <h4 className="text-lg font-semibold">Quick Links</h4>
                         <nav className="space-y-2">
-                            {['About', 'Skills', 'Projects', 'Contact'].map((item) => (
+                            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
                                 <motion.a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
@@ -108,22 +109,11 @@ export default function Footer() {
                         <h4 className="text-lg font-semibold">Get In Touch</h4>
                         <div className="space-y-2 text-gray-300">
                             <motion.p whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                                {personalInfo.email}
+                                rasanjani9jayasingha@gmail.com
                             </motion.p>
                             <motion.p whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                                {personalInfo.location}
+                                Kurunegala, Sri Lanka
                             </motion.p>
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex items-center space-x-2 mt-4"
-                            >
-                                <motion.div
-                                    className="w-2 h-2 bg-green-400 rounded-full"
-                                    animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                />
-                                <span className="text-sm">Available for new projects</span>
-                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
@@ -137,7 +127,7 @@ export default function Footer() {
                         className="text-gray-400 text-sm"
                         whileHover={{ color: '#9ca3af' }}
                     >
-                        © {currentYear} {personalInfo.name}. All rights reserved.
+                        © 2026 Wameesha Jayasingha. All rights reserved.
                     </motion.p>
 
                     <motion.button

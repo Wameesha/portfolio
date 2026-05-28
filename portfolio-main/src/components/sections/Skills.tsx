@@ -4,49 +4,49 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { useEffect } from 'react'
+import { FiActivity, FiCheckSquare, FiCpu, FiDatabase, FiEye, FiGitBranch, FiGrid, FiLink, FiZap } from 'react-icons/fi'
 import {
-    SiReact, SiNodedotjs, SiExpress, SiSpringboot,
-    SiPhp, SiC, SiCplusplus, SiScala, SiPython, SiR,
-    SiTailwindcss, SiMysql, SiMongodb, SiGit, SiLinux,
-    SiJavascript, SiHtml5, SiCss3, SiFigma, SiPostman, SiNextdotjs,
-    SiApacheairflow, SiDbt, SiSnowflake, SiSupabase, SiLooker, SiPandas
+    SiApacheairflow, SiApachekafka, SiDbt, SiSnowflake, SiSupabase, SiLooker, SiPandas,
+    SiMysql, SiMongodb, SiPython, SiScala, SiJava, SiGit, SiGithub, SiLinux, SiFigma,
+    SiPostman, SiReact, SiSpringboot
 } from 'react-icons/si'
 
 
 // Main technologies to display with centered cloud positioning
 const mainTechnologies = [
-    { icon: SiReact, color: '#61DAFB', position: { top: '15%', left: '20%' } },
-    { icon: SiNextdotjs, color: '#fff', position: { top: '18%', left: '35%' } },
-    { icon: SiJavascript, color: '#F7DF1E', position: { top: '10%', left: '80%' } },
-    { icon: SiNodedotjs, color: '#339933', position: { top: '20%', left: '70%' } },
-    { icon: SiExpress, color: '#FFFFFF', position: { top: '35%', left: '15%' } },
-    { icon: SiPhp, color: '#777BB4', position: { top: '30%', left: '50%' } },
-    { icon: SiC, color: '#A8B9CC', position: { top: '40%', left: '75%' } },
-    { icon: SiCplusplus, color: '#00599C', position: { top: '50%', left: '25%' } },
-    { icon: SiScala, color: '#DC322F', position: { top: '45%', left: '60%' } },
-    { icon: SiPython, color: '#3776AB', position: { top: '55%', left: '80%' } },
-    { icon: SiR, color: '#276DC3', position: { top: '60%', left: '20%' } },
-    { icon: SiTailwindcss, color: '#06B6D4', position: { top: '65%', left: '65%' } },
-    { icon: SiHtml5, color: '#E34F26', position: { top: '70%', left: '15%' } },
-    { icon: SiCss3, color: '#1572B6', position: { top: '75%', left: '45%' } },
-    { icon: SiMysql, color: '#4479A1', position: { top: '80%', left: '70%' } },
-    { icon: SiMongodb, color: '#47A248', position: { top: '85%', left: '25%' } },
-    { icon: SiSpringboot, color: '#6DB33F', position: { top: '12%', left: '50%' } },
-    { icon: SiGit, color: '#F05032', position: { top: '42%', left: '35%' } },
-    { icon: SiLinux, color: '#FCC624', position: { top: '68%', left: '55%' } },
-    { icon: SiFigma, color: '#F24E1E', position: { top: '22%', left: '45%' } },
-    { icon: SiPostman, color: '#FF6C37', position: { top: '38%', left: '85%' } },
-    { icon: SiApacheairflow, color: '#017CEE', position: { top: '8%', left: '60%' } },
-    { icon: SiDbt, color: '#FF694B', position: { top: '28%', left: '5%' } },
-    { icon: SiSnowflake, color: '#29B5E8', position: { top: '52%', left: '10%' } },
-    { icon: SiSupabase, color: '#3ECF8E', position: { top: '78%', left: '55%' } },
-    { icon: SiLooker, color: '#4285F4', position: { top: '88%', left: '65%' } },
-    { icon: SiPandas, color: '#150458', position: { top: '33%', left: '92%' } }
+    { icon: SiGit, color: '#F05032', position: { top: '10%', left: '12%' } },
+    { icon: SiGithub, color: '#FFFFFF', position: { top: '12%', left: '35%' } },
+    { icon: SiLinux, color: '#FCC624', position: { top: '10%', left: '60%' } },
+    { icon: SiPostman, color: '#FF6C37', position: { top: '12%', left: '82%' } },
+    { icon: SiFigma, color: '#F24E1E', position: { top: '22%', left: '15%' } },
+    { icon: SiReact, color: '#61DAFB', position: { top: '22%', left: '38%' } },
+    { icon: SiSpringboot, color: '#6DB33F', position: { top: '22%', left: '62%' } },
+    { icon: SiLooker, color: '#4285F4', position: { top: '22%', left: '85%' } },
+    { icon: FiEye, color: '#9CA3AF', position: { top: '34%', left: '12%' } },
+    { icon: SiPython, color: '#3776AB', position: { top: '34%', left: '35%' } },
+    { icon: FiDatabase, color: '#9CA3AF', position: { top: '34%', left: '58%' } },
+    { icon: SiJava, color: '#007396', position: { top: '34%', left: '80%' } },
+    { icon: SiScala, color: '#DC322F', position: { top: '46%', left: '12%' } },
+    { icon: SiApacheairflow, color: '#017CEE', position: { top: '46%', left: '35%' } },
+    { icon: SiPandas, color: '#150458', position: { top: '46%', left: '58%' } },
+    { icon: FiLink, color: '#9CA3AF', position: { top: '46%', left: '80%' } },
+    { icon: FiActivity, color: '#9CA3AF', position: { top: '58%', left: '12%' } },
+    { icon: SiSnowflake, color: '#29B5E8', position: { top: '58%', left: '35%' } },
+    { icon: SiDbt, color: '#FF694B', position: { top: '58%', left: '58%' } },
+    { icon: SiSupabase, color: '#3ECF8E', position: { top: '58%', left: '80%' } },
+    { icon: SiMysql, color: '#4479A1', position: { top: '70%', left: '12%' } },
+    { icon: SiMongodb, color: '#47A248', position: { top: '70%', left: '35%' } },
+    { icon: SiApachekafka, color: '#231F20', position: { top: '70%', left: '58%' } },
+    { icon: FiZap, color: '#FBBF24', position: { top: '70%', left: '80%' } },
+    { icon: FiGitBranch, color: '#9CA3AF', position: { top: '82%', left: '12%' } },
+    { icon: FiCheckSquare, color: '#9CA3AF', position: { top: '82%', left: '35%' } },
+    { icon: FiGrid, color: '#9CA3AF', position: { top: '82%', left: '58%' } },
+    { icon: FiCpu, color: '#9CA3AF', position: { top: '82%', left: '80%' } }
 ]
 
 export default function Skills() {
     // Typing animation for 'Always Learning & Evolving' section
-    const learningText = "Always Learning & Evolving\nAs a Computer Science undergraduate at UCSC, I'm passionate about staying current with modern technologies and best practices. These tools represent my current expertise in full-stack development, and I'm always exploring new technologies to enhance my software engineering capabilities.";
+    const learningText = "Always Learning & Evolving\nAs a Data Engineering specialist, I stay current with the modern data stack - from event streaming and CDC patterns to cloud-native warehousing and declarative transformations. Every project I build adds a new tool to this growing stack.";
     const [typed, setTyped] = useState("");
     const [typingIndex, setTypingIndex] = useState(0);
     useEffect(() => {
@@ -124,7 +124,7 @@ export default function Skills() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            Tech
+                            Skills &
                         </motion.span>
                         {" "}
                         <motion.span
@@ -133,7 +133,7 @@ export default function Skills() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-purple-400"
                         >
-                            Stack
+                            Technologies
                         </motion.span>
                     </motion.h2>
                     <motion.div
@@ -146,7 +146,7 @@ export default function Skills() {
                         variants={itemVariants}
                         className="text-xl text-gray-300 max-w-3xl mx-auto"
                     >
-                        Technologies I work with to build modern, scalable applications
+                        Technologies I work with to build modern, scalable data systems
                     </motion.p>
                 </motion.div>
 
@@ -158,7 +158,7 @@ export default function Skills() {
                     className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 py-8 mx-auto max-w-5xl"
                 >
                     {mainTechnologies.map((tech, index) => {
-                        const IconComponent = tech.icon;
+                        const IconComponent = tech.icon || FiDatabase;
                         return (
                             <motion.div
                                 key={index}
