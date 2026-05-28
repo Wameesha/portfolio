@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FiMail, FiLinkedin, FiGithub, FiGlobe } from 'react-icons/fi'
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'
 
 export default function Contact() {
     const ref = useRef(null)

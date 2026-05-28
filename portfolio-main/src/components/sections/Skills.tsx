@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 import { FiActivity, FiCheckSquare, FiCpu, FiDatabase, FiEye, FiGitBranch, FiGrid, FiLink, FiZap } from 'react-icons/fi'
 import {
     SiApacheairflow, SiApachekafka, SiDbt, SiSnowflake, SiSupabase, SiLooker, SiPandas,
-    SiMysql, SiMongodb, SiPython, SiScala, SiJava, SiGit, SiGithub, SiLinux, SiFigma,
+    SiMysql, SiMongodb, SiPython, SiScala, SiOpenjdk, SiGit, SiGithub, SiLinux, SiFigma,
     SiPostman, SiReact, SiSpringboot
 } from 'react-icons/si'
 
@@ -25,7 +25,7 @@ const mainTechnologies = [
     { icon: FiEye, color: '#9CA3AF', position: { top: '34%', left: '12%' } },
     { icon: SiPython, color: '#3776AB', position: { top: '34%', left: '35%' } },
     { icon: FiDatabase, color: '#9CA3AF', position: { top: '34%', left: '58%' } },
-    { icon: SiJava, color: '#007396', position: { top: '34%', left: '80%' } },
+    { icon: SiOpenjdk, color: '#007396', position: { top: '34%', left: '80%' } },
     { icon: SiScala, color: '#DC322F', position: { top: '46%', left: '12%' } },
     { icon: SiApacheairflow, color: '#017CEE', position: { top: '46%', left: '35%' } },
     { icon: SiPandas, color: '#150458', position: { top: '46%', left: '58%' } },
