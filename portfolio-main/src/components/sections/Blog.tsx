@@ -12,16 +12,8 @@ const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURICompone
 type BlogItem = {
     title: string
     pubDate: string
-    description: string
     link: string
-    thumbnail: string
     categories: string[]
-}
-
-function stripHtml(html: string) {
-    const tmp = document.createElement('div')
-    tmp.innerHTML = html
-    return tmp.textContent || tmp.innerText || ''
 }
 
 function formatDate(dateStr: string) {
@@ -30,13 +22,6 @@ function formatDate(dateStr: string) {
         month: 'long',
         year: 'numeric'
     })
-}
-
-function getExcerpt(description: string, maxLength = 120) {
-    const text = stripHtml(description)
-    return text.length > maxLength
-        ? `${text.substring(0, maxLength).trim()}...`
-        : text
 }
 
 function getTag(categories: string[]) {
@@ -52,7 +37,6 @@ export default function Blog() {
     const [posts, setPosts] = useState<BlogItem[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
-    const cardImageRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
     useEffect(() => {
         let isMounted = true
@@ -86,63 +70,6 @@ export default function Blog() {
         }
     }, [])
 
-    useEffect(() => {
-        if (isLoading || hasError || posts.length === 0) return
-
-        posts.slice(0, 6).forEach((item) => {
-            const cardElement = cardImageRefs.current[item.link]
-            if (!cardElement) return
-            getCardImage(item, cardElement)
-        })
-    }, [posts, isLoading, hasError])
-
-    function getCardImage(item: BlogItem, cardElement: HTMLDivElement) {
-        if (item.thumbnail && item.thumbnail.trim() !== '') {
-            const testImg = new Image()
-
-            testImg.onload = () => {
-                cardElement.style.backgroundImage = `url(${item.thumbnail})`
-                cardElement.style.backgroundSize = 'cover'
-                cardElement.style.backgroundPosition = 'center'
-                cardElement.innerHTML = ''
-            }
-
-            testImg.onerror = () => {
-                showGradientFallback(cardElement, item)
-            }
-
-            testImg.src = item.thumbnail
-        } else {
-            showGradientFallback(cardElement, item)
-        }
-    }
-
-    function showGradientFallback(cardElement: HTMLDivElement, item: BlogItem) {
-        const gradients = [
-            'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
-            'linear-gradient(135deg, #0d0d1a 0%, #1a0a2e 50%, #2d1b69 100%)',
-            'linear-gradient(135deg, #0a0a1a 0%, #0d1b2e 50%, #1a3a5c 100%)',
-            'linear-gradient(135deg, #1a0d2e 0%, #2d1654 50%, #6b21a8 100%)',
-            'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
-            'linear-gradient(135deg, #0c0a1e 0%, #1e0a3c 50%, #4c1d95 100%)'
-        ]
-
-        const index = (item.title?.length || 0) % gradients.length
-        cardElement.style.background = gradients[index]
-
-        const tag = getTag(item.categories)
-        cardElement.innerHTML = `
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:12px;">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="1.5">
-        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-      </svg>
-      <span style="color:#a855f7; font-size:12px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;">
-        ${tag}
-      </span>
-    </div>
-  `
-    }
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -199,19 +126,19 @@ export default function Blog() {
                 </motion.div>
 
                 {isLoading && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="flex flex-col gap-4">
                         {Array.from({ length: 6 }).map((_, index) => (
                             <div
                                 key={`skeleton-${index}`}
-                                className="bg-gray-900 rounded-2xl border border-gray-800/60 overflow-hidden animate-pulse"
+                                className="bg-gray-900 rounded-2xl border border-gray-800/60 px-6 py-5 animate-pulse"
                             >
-                                <div className="h-44 bg-gray-800" />
-                                <div className="p-6 space-y-4">
-                                    <div className="h-5 w-24 bg-gray-800 rounded-full" />
-                                    <div className="h-5 w-4/5 bg-gray-800 rounded" />
-                                    <div className="h-4 w-full bg-gray-800 rounded" />
-                                    <div className="h-4 w-3/5 bg-gray-800 rounded" />
-                                    <div className="h-9 w-full bg-gray-800 rounded-lg" />
+                                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 sm:flex-1">
+                                        <div className="h-5 w-24 bg-gray-800 rounded-full" />
+                                        <div className="h-5 w-4/5 bg-gray-800 rounded sm:w-72" />
+                                        <div className="h-4 w-24 bg-gray-800 rounded" />
+                                    </div>
+                                    <div className="h-9 w-full bg-gray-800 rounded-lg sm:w-40" />
                                 </div>
                             </div>
                         ))}
@@ -240,39 +167,30 @@ export default function Blog() {
 
                 {!isLoading && !hasError && posts.length > 0 && (
                     <>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="flex flex-col gap-4">
                             {posts.slice(0, 6).map((item) => (
                                 <motion.article
                                     key={item.link}
                                     variants={itemVariants}
-                                    className="group bg-gray-900 rounded-2xl border border-gray-800/60 overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(168,85,247,0.25)]"
+                                    className="group bg-gray-900 rounded-2xl border border-gray-800/60 px-6 py-5 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(168,85,247,0.25)]"
                                 >
-                                    <div
-                                        ref={(element) => {
-                                            cardImageRefs.current[item.link] = element
-                                        }}
-                                        className="card-image w-full h-44 bg-gray-800 flex items-center justify-center"
-                                    >
-                                        <FiEdit3 className="w-8 h-8 text-purple-400" />
-                                    </div>
-                                    <div className="p-6 space-y-3">
-                                        <span className="inline-flex px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs font-medium">
-                                            {getTag(item.categories)}
-                                        </span>
-                                        <h3 className="text-lg font-semibold text-white line-clamp-2">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-sm text-gray-300 leading-relaxed">
-                                            {getExcerpt(item.description)}
-                                        </p>
-                                        <div className="text-xs text-gray-400">
-                                            {formatDate(item.pubDate)}
+                                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6 sm:flex-1">
+                                            <span className="inline-flex px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs font-medium">
+                                                {getTag(item.categories)}
+                                            </span>
+                                            <h3 className="text-lg font-semibold text-white sm:flex-1 line-clamp-2">
+                                                {item.title}
+                                            </h3>
+                                            <div className="text-xs text-gray-400 whitespace-nowrap">
+                                                {formatDate(item.pubDate)}
+                                            </div>
                                         </div>
                                         <a
                                             href={item.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-2 border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white rounded-lg font-medium transition-colors duration-200"
+                                            className="inline-flex w-full items-center justify-center gap-2 px-4 py-2 border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white rounded-lg font-medium transition-colors duration-200 sm:w-auto"
                                         >
                                             <SiMedium className="w-4 h-4" />
                                             Read on Medium
