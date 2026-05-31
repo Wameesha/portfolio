@@ -223,8 +223,8 @@ export default function Hero() {
                         className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed"
                     >
                         Aspiring Data Engineer specializing in real-time streaming pipelines,
-                        cloud data warehousing, and ELT automation. Building data systems that
-                        move at the speed of business using Apache Kafka, Snowflake, dbt, and
+                        cloud data warehousing and ELT automation. Building data systems that
+                        move at the speed of business using Apache Kafka, Snowflake, dbt and
                         Apache Airflow.
                     </motion.p>
 

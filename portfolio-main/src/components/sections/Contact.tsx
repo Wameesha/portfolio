@@ -108,7 +108,7 @@ export default function Contact() {
                             </h3>
                             <p className="text-gray-300 mb-6 leading-relaxed">
                                 I am actively seeking data engineering internships and graduate roles.
-                                Whether you have a pipeline challenge to solve, a team to join, or just
+                                Whether you have a pipeline challenge to solve, a team to join or just
                                 want to talk about the modern data stack - I would love to hear from you.
                             </p>
                         </motion.div>

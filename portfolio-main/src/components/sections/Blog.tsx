@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { FiEdit3 } from 'react-icons/fi'
+import { FiArrowDown, FiEdit3 } from 'react-icons/fi'
 import { SiMedium } from 'react-icons/si'
 
 const MEDIUM_RSS_URL = 'https://medium.com/feed/@rasanjani9jayasingha'
@@ -205,9 +205,10 @@ export default function Blog() {
                                 href="https://medium.com/@rasanjani9jayasingha"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-200"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors duration-200"
                             >
-                                View All Posts on Medium →
+                                <span>View All Posts on Medium</span>
+                                <FiArrowDown className="w-5 h-5 rotate-90" />
                             </a>
                         </div>
                     </>
