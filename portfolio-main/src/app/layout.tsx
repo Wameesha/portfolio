@@ -63,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${firaCode.variable} font-sans antialiased md:snap-y md:snap-mandatory md:h-screen overflow-y-scroll`}
+        className={`${inter.variable} ${firaCode.variable} font-sans antialiased md:snap-y md:snap-mandatory md:h-screen md:overflow-y-scroll`}
       >
         <SpeedInsights />
         {children}

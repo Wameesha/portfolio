@@ -105,11 +105,11 @@ export default function Projects() {
 
             {/* Project Content */}
             <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-200">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                    <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors duration-200 min-w-0">
                         {project.title}
                     </h3>
-                    <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm font-medium whitespace-nowrap">
+                    <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap self-start">
                         {project.category}
                     </span>
                 </div>

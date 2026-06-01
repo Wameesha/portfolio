@@ -90,7 +90,7 @@ export default function Footer() {
                     <motion.div variants={itemVariants} className="space-y-4">
                         <h4 className="text-lg font-semibold">Quick Links</h4>
                         <nav className="space-y-2">
-                            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
+                            {['Home', 'About', 'Skills', 'Projects', 'Blog', 'Contact'].map((item) => (
                                 <motion.a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}

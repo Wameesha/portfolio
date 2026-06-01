@@ -203,7 +203,7 @@ export default function Hero() {
                         className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
                     >
                         <span className="block">Hi, I&apos;m</span>
-                        <span className="block text-purple-400">Wameesha Jayasingha</span>
+                        <span className="block text-purple-400">Wameesha Jayasinghe</span>
                     </motion.h1>
 
                     {/* Animated Title */}
