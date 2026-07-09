@@ -112,11 +112,7 @@ export default function About() {
                             variants={itemVariants}
                             className="text-lg text-gray-300 leading-relaxed"
                         >
-                            I am an aspiring Data Engineer and Computer Science undergraduate at the
-                            University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00.
-                            I specialize in designing and implementing real-time and batch data pipelines
-                            using the modern data stack - building end-to-end systems that move data from
-                            raw sources into analytics-ready warehouses, reliably and at scale.
+                            I am an aspiring Data Engineer with a Bachelor of Science in Computer Science (Second Class Upper Division) from the University of Colombo School of Computing (UCSC), with a GPA of 3.33/4.00. I specialize in designing and implementing real-time and batch data pipelines using the modern data stack, building end-to-end systems that move data from raw sources into analytics-ready warehouses reliably and at scale.
                         </motion.p>
 
                         <motion.p
@@ -185,7 +181,7 @@ export default function About() {
                     className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
                 >
                     {[
-                        { number: "3.32", label: "GPA/4.00" },
+                        { number: "3.33", label: "GPA/4.00" },
                         { number: "5+", label: "Major Projects" },
                         { number: "10+", label: "Technologies" },
                         { number: "2026", label: "Graduation" }

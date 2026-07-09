@@ -4,7 +4,7 @@ export const personalInfo = {
   email: "rasanjani9jayasingha@gmail.com",
   phone: "+94 74 1748684",
   location: "Kurunegala, Sri Lanka",
-  bio: "Proactive and motivated Computer Science undergraduate focused on data engineering and software engineering. Currently pursuing a B.Sc. in Computer Science at the University of Colombo School of Computing (UCSC) with a GPA of 3.32/4.00. Passionate about building reliable data pipelines, real-time analytics, and production-ready systems that turn data into insights.",
+  bio: "Proactive and motivated Computer Science undergraduate focused on data engineering and software engineering. Currently pursuing a B.Sc. in Computer Science at the University of Colombo School of Computing (UCSC) with a GPA of 3.33/4.00. Passionate about building reliable data pipelines, real-time analytics, and production-ready systems that turn data into insights.",
   avatar: "/images/avatar.png", // Your professional headshot
   resume: "/images/resume.pdf", // Your resume file
 };
